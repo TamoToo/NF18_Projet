@@ -1,0 +1,90 @@
+@startuml
+!theme toy
+
+abstract class Ressource{
+  code {key} : integer
+  titre : string
+  date_apparition : date
+  editeur : string
+  genre : string
+  code_classification : integer
+}
+
+class Film{
+  langue: string
+  durée : date
+  synopsis : text
+}
+class Livre{
+  isbn : integer
+  résumé : string
+  langue : string
+}
+
+class Musique{
+  durée : date
+}
+
+class Contributeur{
+  nom : string
+  prénom : string
+  date_de_naissance : date
+  nationalité : string
+  rôle : enum{auteur, compositeurs, interprètes, réalisateurs, acteurs}
+}
+
+class Exemplaire{
+  code {key} : code
+  disponibilité : boolean
+  état : enum{neuf | bon | abîmé | perdu}
+}
+
+class Prêt{
+  date : date
+  durée : date
+}
+
+abstract class Personne {
+  nom : string
+  prenom : string
+  adresse : string
+  email : string
+}
+
+class Adhérent{
+  date_de_naissance : date
+  téléphone : integer
+  carte : string
+}
+
+class Personnel{
+  role_employe : string
+}
+
+class Compte_Utilisateur {
+  login : string
+  mdp : string
+}
+
+class Sanction{
+  adhérent : integer
+  type : enum{remboursement | blacklisté}
+}
+
+
+Ressource <|-- Film
+Ressource <|-- Livre
+Ressource <|-- Musique
+
+Ressource *-- "1..*" Contributeur
+
+Ressource *-- "1..*" Exemplaire
+Exemplaire "0..10" -- "0..1" Adhérent
+
+Personne *-- "1" Compte_Utilisateur
+Personne <|-- Adhérent
+Personne <|-- Personnel
+
+Sanction "*" -- "1" Adhérent : possède
+(Exemplaire, Adhérent) .. Prêt
+@enduml

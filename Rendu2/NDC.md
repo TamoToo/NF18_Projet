@@ -47,7 +47,7 @@ Pour pouvoir emprunter un document, un adhérent à besoin de s'authentifier. Ch
 - Musique
     - durée : integer
 - Exemplaire
-    - id {key} : code
+    - id {key} : integer
     - disponibilité : boolean
     - état : {neuf | bon | abîmé | perdu}
 - Contributeur

@@ -42,10 +42,10 @@ Pour pouvoir emprunter un document, un adhérent à besoin de s'authentifier. Ch
     - langue : string
 - Film
     - langue: string
-    - durée : date
+    - durée : integer
     - synopsis : text
 - Musique
-    - durée : date
+    - durée : integer
 - Exemplaire
     - id {key} : code
     - disponibilité : boolean
@@ -55,27 +55,43 @@ Pour pouvoir emprunter un document, un adhérent à besoin de s'authentifier. Ch
     - prénom : string
     - date_de_naissance : date
     - nationalité : string
-    - rôle : {auteur, compositeurs, interprètes, réalisateurs, acteurs}
 - Personne
     - nom : string
     - prénom : string
     - adresse : string
     - adresse_mail : string
-- Membre
+- Personnel
     - role_employe : string
 - Adhérent
     - date_de_naissance : date
     - téléphone : integer
     - carte : string
+    - blacklisté : bool
+    - suspendu : bool
 - Prêt
     - date : date
     - durée : date
 - Sanction
-    - adhérent : integer
-    - type : {remboursement | blacklisté}
+
+- Deterioration 
+    - nv_etat : {enum neuf/bon/abimé/perdu}
+    - cout : integer 
+- Retard
+    - durée : int
+
 - Compte Utilisateur
     - login : string
     - mdp : string
+
+
+>##Associations
+Une ressource peut avoir plusieurs exemplaires.
+Une ressource peut avoir un ou plusieurs contributeurs
+Par exemple, un film peut avoir plusieurs contributeurs (réalisateurs et acteurs) ou un seul (acteur/réalisateur).
+Un adhérent peut reserver /posseder plusieurs exemplaires.
+Une personne a un compte utilisateur.
+Un exemplaire peut avoir plusieurs sanctions. 
+Un adhérent peut avoir plusieurs sanctions. 
 
 
 >## Informations complémentaires
@@ -85,3 +101,16 @@ Pour pouvoir emprunter un document, un adhérent à besoin de s'authentifier. Ch
 - Adhérent et Personnel sont des Personne (héritage)
 - Un Adhérent ne peut emprunter qu'un nombre limité d'œuvres (10)
 - Tous les attributs sont supposés NOT NULL
+- les utilisateurs de la BD sont les membre personnel et les adhérents. 
+- Le role de membre personnel est un role d'administrateur systeme tel qu'ajouter des personnes, ajouter des ressources, sanctionner...
+- Le role des adhérents est un role "d'invité" il ne peut que reserver ou posséder un livre. Il peut aussi rechercher des documents et gérer ses emprunts.
+
+>## requetes types
+
+Un adhérent demande de reserver un livre.
+Un adhérent emprunte un livre. 
+Un adhérent recherche un livre.
+Un personnel ajoute un nouveau livre/film/musique.
+Un personnel ajoute des exemplaires d'un livre.
+Un personnel suspend un adhérent. 
+Un personnel met à jour l'état d'un exemplaire.

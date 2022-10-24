@@ -10,9 +10,23 @@ Contributeur(#id:integer, nom:string, prénom:string, date_de_naissance:date, na
 
 Exemplaire(#code:code, disponibilité:boolean, etat: {neuf | bon | abîmé | perdu})
 
-Personne(#nom:string
+Personne(#nom:string, prenom : string , adresse : string , email : string)
 
-Adhérent(
+Adhérent(date_de_naissance : date, telephone : integer , carte : string)
 
 
 Prêt(#code=>Exemplaire, #adhérent=>Adhérent, date:date, durée:integer)
+
+Sanction(#id : integer)
+
+Détérioration(nv_etat: {neuf | bon | abîmé | perdu}, coût : integer)
+
+Retard(#nb_jours : integer)
+
+Personnel(role_employe : string )
+
+Compte_Utilisateur(login : string , mdp : string)
+
+
+
+

@@ -9,7 +9,7 @@ Musique(#code=>Ressource, durée:integer)
 
 Contributeur(#id:integer, nom:string, prénom:string, date_de_naissance:date, nationalité:string)
 
-Exemplaire(#code:code, disponibilité:boolean, etat: {neuf | bon | abîmé | perdu})
+Exemplaire(#code => Ressource , disponibilité:boolean, etat: {neuf | bon | abîmé | perdu})
 
 Personne(#email : string , nom:string, prenom : string , adresse : string)
 

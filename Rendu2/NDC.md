@@ -85,13 +85,13 @@ Pour pouvoir emprunter un document, un adhérent à besoin de s'authentifier. Ch
 
 
 >##Associations
-Une ressource peut avoir plusieurs exemplaires.
-Une ressource peut avoir un ou plusieurs contributeurs
-Par exemple, un film peut avoir plusieurs contributeurs (réalisateurs et acteurs) ou un seul (acteur/réalisateur).
-Un adhérent peut reserver /posseder plusieurs exemplaires.
-Une personne a un compte utilisateur.
-Un exemplaire peut avoir plusieurs sanctions. 
-Un adhérent peut avoir plusieurs sanctions. 
+- Une ressource peut avoir plusieurs exemplaires.
+- Une ressource peut avoir un ou plusieurs contributeurs
+- Par exemple, un film peut avoir plusieurs contributeurs (réalisateurs et acteurs) ou un seul (acteur/réalisateur).
+- Un adhérent peut reserver /posseder plusieurs exemplaires.
+- Une personne a un compte utilisateur.
+- Un exemplaire peut avoir plusieurs sanctions. 
+- Un adhérent peut avoir plusieurs sanctions. 
 
 
 >## Informations complémentaires
@@ -107,10 +107,10 @@ Un adhérent peut avoir plusieurs sanctions.
 
 >## requetes types
 
-Un adhérent demande de reserver un livre.
-Un adhérent emprunte un livre. 
-Un adhérent recherche un livre.
-Un personnel ajoute un nouveau livre/film/musique.
-Un personnel ajoute des exemplaires d'un livre.
-Un personnel suspend un adhérent. 
-Un personnel met à jour l'état d'un exemplaire.
+- Un adhérent demande de reserver un livre.
+- Un adhérent emprunte un livre. 
+- Un adhérent recherche un livre.
+- Un personnel ajoute un nouveau livre/film/musique.
+- Un personnel ajoute des exemplaires d'un livre.
+- Un personnel suspend un adhérent. 
+- Un personnel met à jour l'état d'un exemplaire.

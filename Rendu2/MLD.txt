@@ -11,19 +11,19 @@ Contributeur(#id:integer, nom:string, prénom:string, date_de_naissance:date, na
 
 Exemplaire(#code:code, disponibilité:boolean, etat: {neuf | bon | abîmé | perdu})
 
-Personne(#nom:string, prenom : string , adresse : string , email : string)
+Personne(#email : string , nom:string, prenom : string , adresse : string)
 
-Adhérent(#nom => Personne, id : integer , date_de_naissance : date, telephone : integer , carte : string) with id KEY
+Adhérent(#email => Personne, date_de_naissance : date, telephone : integer , carte : string) 
+
+Personnel(#email => Personne,role_employe : string) 
 
 Prêt(#code=>Exemplaire, #adhérent=>Adhérent, date:date, durée:integer)
 
-Détérioration(#id : integer , nv_etat: {neuf | bon | abîmé | perdu}, coût : integer , adhérent => Adhérent ,)
+Détérioration(#id : integer , nv_etat: {neuf | bon | abîmé | perdu}, coût : integer , adhérent => Adhérent)
 
 Retard(#id : integer , nb_jours : integer , adhérent => Adhérent)
 
-Personnel(#nom => Personne, id: integer , role_employe : string) with id KEY
-
-Compte_Utilisateur(login : string , mdp : string)
+Compte_Utilisateur(#login : string ,#email => Personne ,  mdp : string)
 
 RELATION:
 Interprete (#code => Musique, #id => Contributeur)

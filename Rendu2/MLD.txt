@@ -37,6 +37,3 @@ Realisateur (#code => Film, #id => Contributeur)
 Acteur (#code => Film, #id => Contributeur)
 
 Commentaire : Choix le la méthode d'héritage par référence le choix d'héritage par classe fille n'étant pas judicieux ici.
-
-
-

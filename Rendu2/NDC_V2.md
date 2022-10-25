@@ -84,7 +84,7 @@ Pour pouvoir emprunter un document, un adhérent à besoin de s'authentifier. Ch
     - mdp : string
 
 
->##Associations
+>## Associations
 - Une ressource peut avoir plusieurs exemplaires.
 - Une ressource peut avoir un ou plusieurs contributeurs
 - Par exemple, un film peut avoir plusieurs contributeurs (réalisateurs et acteurs) ou un seul (acteur/réalisateur).

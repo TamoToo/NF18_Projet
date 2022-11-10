@@ -57,10 +57,10 @@ _Transformez Réservation comme une classe d'association avec date local key ég
 - Réservation(#code=> Exemplaire,#adhérent=>Adhérent, #date:date )
 
 ### Commentaire
-Ici pour la **transformation de Ressource**, on note : classe mère abstraite, héritage presque complet, association N:M sur la classe mère.
+Ici pour la **transformation de Ressource**, on note : classe mère abstraite, association N:M sur la classe mère.
 L'héritage par les classes filles est donc exclu, on choisit donc l'héritage par référence.
 
-On souhaite représenter le fait qu’une **sanction peut être un retard, une deterioration  ou les deux**, donc nous ne pouvons pas utiliser l’héritage par la classe fille car on ne pourrait pas représenter le cas où ce sont les deux avec les clés que nous avons défini. Grâce aux clés défini les clés  dans les classes filles on choisit un heritage par référence.
+On souhaite représenter le fait qu’une **sanction peut être un retard, une deterioration  ou les deux**, donc nous ne pouvons pas utiliser l’héritage par la classe fille car on ne pourrait pas représenter le cas où ce sont les deux avec les clés que nous avons défini. Ici, nous avons un héritage presque complet. Grâce aux clés défini les clés  dans les classes filles on choisit un heritage par référence.
 
 Pour l'héritage Personne avec adhérent et personnel: on utilise de même l’héritage par référence de la classe fille vers la mère.
 __

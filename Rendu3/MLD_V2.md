@@ -1,6 +1,6 @@
 # MODELE LOGIQUE DE DONNEES (MLD)
 
->## CLASSES:
+>## RELATIONS:
 
 - Ressource(#code:integer, titre:string, date_apparition:date, editeur:string, genre:string, code_classification:integer)
 
@@ -28,7 +28,6 @@
 
 - Compte_Utilisateur(#login : string ,#email => Personne ,  mdp : string)
 
-#### Relations
 - Interprete (#code => Musique, #id => Contributeur)
 
 - Compositeur (#code => Musique, #id => Contributeur)

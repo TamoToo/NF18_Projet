@@ -4,8 +4,8 @@
 
 - Ressource(#code:integer, titre:string NOT NULL, date_apparition:date, editeur:string, genre:string, code_classification:integer) avec code_classification key
  
-    # Contrainte: pour toute ressource il existe au moins un exemplaire ce qui se traduit par:
-        - Projection(Ressource,code)=Projection(Exemplaire,code)
+# Contrainte: pour toute ressource il existe au moins un exemplaire ce qui se traduit par:
+    - Projection(Ressource,code)=Projection(Exemplaire,code)
 
 - Film(#code=>Ressource, langue:string, durée: time, synopsis:text)
 
@@ -18,11 +18,11 @@
 - Exemplaire(#code => Ressource , disponibilité:boolean, etat: {neuf | bon | abîmé | perdu})
 
 - Personne(#email : string , nom:string, prenom : string , adresse : string)
+#Contrainte : Un utilisateur est forcément un membre ou un adhérent, et il ne peut pas être les deux. Ce qui se traduit par:
+ - Intersection (projection(Personne, email),projection(Personnel,email) ) = { }
+ - Projection(Personnel, email) = projection(Adhérent, email) union projection(Personnel,email)
 
-    #Contrainte : Un utilisateur est forcément un membre ou un adhérent, et il ne peut pas être les deux. Ce qui se traduit par:
-        - Intersection (projection(Personne, email),projection(Personnel,email) ) = { }
-        - Projection(Personnel, email) = projection(Adhérent, email) union projection(Personnel,email)
-****
+
 - Adhérent(#email => Personne, date_de_naissance : date NOT NULL, telephone : integer , carte : string) 
 
 - Personnel(#email => Personne,role_employe : string) 
@@ -36,20 +36,20 @@
 - Compte_Utilisateur(#login : string ,#email => Personne ,  mdp : string  NOT NULL)  avec login local key
 
 - Interprete (#code => Musique, #id => Contributeur)
-    #Contrainte: il y a forcément un interprète
-        -projection(Musique,code)=projection(Interprete,code)
+#Contrainte: il y a forcément un interprète
+-projection(Musique,code)=projection(Interprete,code)
 
 - Compositeur (#code => Musique, #id => Contributeur)
-    #Contrainte: il y a forcément un compositeur pour un enregistrement
-        - projection(Musique,code)=projection(Compositeur,code)
+ #Contrainte: il y a forcément un compositeur pour un enregistrement
+ - projection(Musique,code)=projection(Compositeur,code)
 
 - Auteur (#code => Livre, #id => Contributeur)
-    # Contrainte: il y a forcément un Auteur pour un livre
-        - projection(Livre,code)=projection(Auteur,code)
+# Contrainte: il y a forcément un Auteur pour un livre
+ - projection(Livre,code)=projection(Auteur,code)
 
 - Realisateur (#code => Film, #id => Contributeur)
-    #Contrainte: il y a forcément un réalisateur pour un film
-        - projection(Film,code)=projection(Realisateur,code)
+#Contrainte: il y a forcément un réalisateur pour un film
+ - projection(Film,code)=projection(Realisateur,code)
 
 - Acteur (#code => Film, #id => Contributeur)
 

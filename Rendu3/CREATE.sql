@@ -48,7 +48,7 @@ CREATE TABLE Contributeur(
 CREATE TABLE Exemplaire(
     code_ressource INTEGER PRIMARY KEY,
     disponibilité BOOLEAN NOT NULL,
-    etat VARCHAR CHECK IN ('neuf', 'bon', 'abimé', 'perdu'),
+    etat VARCHAR CHECK (etat IN ('neuf', 'bon', 'abimé', 'perdu')),
     FOREIGN KEY (code_ressource) REFERENCES Ressource(code)
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE Personnel(
 
 CREATE TABLE Deterioration(
     id INTEGER PRIMARY KEY,
-    nv_état VARCHAR CHECK IN ('neuf', 'bon', 'abimé', 'perdu'),
+    nv_etat VARCHAR CHECK (nv_etat IN ('neuf', 'bon', 'abimé', 'perdu')),
     cout INTEGER,
     adhérent VARCHAR,
     FOREIGN KEY (adhérent) REFERENCES Adherent(email)

@@ -12,7 +12,7 @@ INSERT INTO Film VALUES (1,'Dans l océan Indien à la fin des années 1980, dur
 
 INSERT INTO Contributeur VALUES (1, 'cruise', 'tom', TO_DATE('1862-07-03', 'YYYY-MM-DD'), 'americain');
 INSERT INTO Contributeur VALUES (4, 'mari', 'julien', TO_DATE('1990-01-14', 'YYYY-MM-DD'), 'francais');
-INSERT INTO Contributeur VALUES (2, 'radcliffe', 'daniel jacob', TO_DATE('1989-07-23', 'YYYY-MM-DD'), 'britannique');
+INSERT INTO Contributeur VALUES (2, ' Rowling', 'J.K.', TO_DATE('1965-07-31', 'YYYY-MM-DD'), 'britannique');
 
 INSERT INTO Exemplaire VALUES (1, TRUE, 'neuf');
 INSERT INTO Exemplaire VALUES (2, TRUE, 'bon');
@@ -22,8 +22,8 @@ INSERT INTO Exemplaire VALUES (4, TRUE, 'perdu');
 
 
 
-INSERT INTO Interprete VALUES (4,2);
-INSERT INTO Compositeur VALUES (4,1);
+INSERT INTO Interprete VALUES (4,4);
+INSERT INTO Compositeur VALUES (4,4);
 
 INSERT INTO Auteur VALUES (2, 2);
 

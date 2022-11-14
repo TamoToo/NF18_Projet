@@ -63,7 +63,8 @@ L'héritage par les classes filles est donc exclu, on choisit donc l'héritage p
 On souhaite représenter le fait qu’une **sanction peut être un retard, une deterioration  ou les deux**, donc nous ne pouvons pas utiliser l’héritage par la classe fille car on ne pourrait pas représenter le cas où ce sont les deux avec les clés que nous avons défini. Ici, nous avons un héritage presque complet. Grâce aux clés défini les clés  dans les classes filles on choisit un heritage par référence.
 
 Pour l'héritage Personne avec adhérent et personnel: on utilise de même l’héritage par référence de la classe fille vers la mère.
-__
+
+
 ### Contraintes 
 Un héritage exclusif est présent pour la classe Ressource : une ressource est soit une Musique soit un Film ou soit un Livre. Contrainte: 
  On a ainsi 

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Ressource, Film, Livre, Musique, Contributeur, Exemplaire, Personne, Adherent, Personnel, Deterioration, Retard, Prêt, Compte_Utilisateur, Interprete, Compositeur, Auteur, Realisateur, Acteur;
+DROP TABLE IF EXISTS Ressource, Film, Livre, Musique, Contributeur, Exemplaire, Personne, Adherent, Personnel, Deterioration, Retard, Pret, Compte_Utilisateur, Interprete, Compositeur, Auteur, Realisateur, Acteur;
 DROP TYPE IF EXISTS ETAT;
 
 
@@ -16,9 +16,9 @@ CREATE TABLE Ressource (
 
 CREATE TABLE Film (
     code INTEGER PRIMARY KEY,
-    langue VARCHAR,
-    duree TIME NOT NULL CHECK (duree > 0),
     synopsis VARCHAR,
+    duree TIME NOT NULL,
+    langue VARCHAR,
     FOREIGN KEY (code) REFERENCES Ressource(code)
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE Livre (
 
 CREATE TABLE Musique (
     code INTEGER PRIMARY KEY,
-    duree TIME NOT NULL CHECK (duree > 0),
+    duree TIME NOT NULL,
     FOREIGN KEY (code) REFERENCES Ressource(code)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE Contributeur(
 CREATE TABLE Exemplaire(
     code_ressource INTEGER PRIMARY KEY,
     disponibilité BOOLEAN NOT NULL,
-    etat VARCHAR CHECK (etat IN ('neuf', 'bon', 'abimé', 'perdu')),
+    etat ETAT,
     FOREIGN KEY (code_ressource) REFERENCES Ressource(code)
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE Personnel(
 
 CREATE TABLE Deterioration(
     id INTEGER PRIMARY KEY,
-    nv_etat VARCHAR CHECK (nv_etat IN ('neuf', 'bon', 'abimé', 'perdu')),
+    nv_etat ETAT,
     cout INTEGER,
     adhérent VARCHAR,
     FOREIGN KEY (adhérent) REFERENCES Adherent(email)
@@ -88,7 +88,7 @@ CREATE TABLE Retard(
     FOREIGN KEY (adhérent) REFERENCES Adherent(email)
 );
 
-CREATE TABLE Prêt(
+CREATE TABLE Pret(
     code INTEGER,
     adhérent VARCHAR,
     date_pret DATE NOT NULL,

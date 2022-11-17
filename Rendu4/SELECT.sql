@@ -17,9 +17,19 @@ INNER JOIN Pret P ON P.code = E.code
 GROUP BY R.code 
 ORDER BY COUNT(*) DESC;
 
+"En combien d'exemplaires disponibles existe une ressource donnée (ici la ressource 1) "
 
-"Renvoie la moyenne des jours ed retards pour les personens ayant au moins un jour de retard"
+SELECT COUNT(*) AS nb_exemplaires_dispo_ressource1
+FROM Exemplaire
+WHERE Exemplaire.ressource = 1 AND Exemplaire.disponibilite = '1';
 
-"Renvoie le nombre de jours de retards maximal"
+"Modifier le synopsis d’un film ( = description d’une ressource) "
+UPDATE Film
+SET synopsis = 'ceci est un synopsis'
+WHERE Film.code = '3';
 
-"Renvoie la proportion des persones ayant eu des sanctions"
+"Regarder le synopsis d'un film "
+SELECT synopsis 
+FROM Film 
+WHERE Film.code = '3';
+

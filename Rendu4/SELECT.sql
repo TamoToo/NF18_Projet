@@ -1,3 +1,5 @@
+"Afficher les ressources disponibles"
+
 "Renvoie la liste des personnes ayant emprunter un livre entre le 11/02/2001 et le 11/02/2022"
 
 "Renvoie le nombre de livre empruntés par Tom Holland" 
@@ -7,6 +9,12 @@
 "Renvoie la liste des personnes ayant eu des sanctions"
 
 "Renvoie la liste des personnes ayant eu des sanctions triés par le nombre de jours de retard le plus élevé"
+
+"Renvoie le nombre de jours de retards maximal"
+
+"Renvoie la proportion des personnes ayant deja eu des sanctions"
+
+"Revnoie la moyenne des jours de retards quand un adhérent a au moins un jour de retard"
 
 " Classement des ressources empruntées de la plus empruntée à la moins empruntée "
 

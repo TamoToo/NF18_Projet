@@ -1,3 +1,8 @@
+/*"Faire deux requête avec les contraintes"
+
+"Genre soustraire la date de fin et la date de debut"*/
+
+
 --"Afficher les ressources disponibles"
 SELECT titre FROM Ressources 
 JOIN Exemplaire ON Exemplaire.code = Ressource.code 

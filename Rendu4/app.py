@@ -6,7 +6,7 @@ import psycopg2
 import forms
 import reports
 
-HOST = "tuxa.Sme.utc"
+HOST = "tuxa.sme.utc"
 USER = "nf18a056"
 PASSWORD = "HvMhY30c"
 DATABASE = "dbnf18a056"
@@ -15,16 +15,32 @@ DATABASE = "dbnf18a056"
 conn = psycopg2.connect("host=%s dbname=%s user=%s password=%s" % (HOST, DATABASE, USER, PASSWORD))
 
 
-choice = '1'
-while choice == '1' or choice == '2':
-  print ("Pour ajouter un philosophe à la base, entrez 1")
-  print ("Pour voir la liste des philosophes, entrez 2")
-  print ("Pour sortir, entrez autre chose")
-  choice = input()  
-  if choice == '1':
-    forms.addPhilo(conn)
-  if choice == '2':
-    reports.printPhilo(conn)
-  print(choice)
+choice = 1
+while choice >= 1 and choice <= 2:
+    forms.afficherMenuPrincipal()
+    choice = int(input())
+    if (choice == 1):
+      info = forms.connection(conn)
+      if not info:
+        break
+      print(f"Vous êtes connecté en tant que {info['role']}")
+      if info['role'] == 'adhérent':
+        forms.afficherMenuAdherent()
+        choice = int(input())
+        if (choice == 1):
+          reports.printAdherent(conn, info['email'])
+      elif info['role'] == 'directeur':
+        print('OK')
+
+
+
+    elif(choice == 2):
+      print("Au revoir")
+    else:
+      print("Choix invalide")
+
+
+
+    print(choice)
 # Close connection
 conn.close()

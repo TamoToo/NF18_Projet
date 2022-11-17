@@ -17,9 +17,9 @@ INNER JOIN Pret P ON P.code = E.code
 GROUP BY R.code 
 ORDER BY COUNT(*) DESC;
 
-"En combien d'exemplaires disponibles existe une ressource donnée (ici la ressource 1) "
 
-SELECT COUNT(*) AS nb_exemplaires_dispo_ressource1
-FROM Exemplaire
-WHERE Exemplaire.ressource = 1 AND Exemplaire.disponibilite = '1';
+"Renvoie la moyenne des jours ed retards pour les personens ayant au moins un jour de retard"
 
+"Renvoie le nombre de jours de retards maximal"
+
+"Renvoie la proportion des persones ayant eu des sanctions"

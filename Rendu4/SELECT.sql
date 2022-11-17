@@ -1,21 +1,44 @@
 "Afficher les ressources disponibles"
-
-"Renvoie la liste des personnes ayant emprunter un livre entre le 11/02/2001 et le 11/02/2022"
+SELECT titre FROM Ressources 
+JOIN Exemplaire ON Exemplaire.code = Ressource.code 
+WHERE disponibilité = TRUE;
 
 "Renvoie le nombre de livre empruntés par Tom Holland" 
+SELECT COUNT(*) FROM Ressources 
+JOIN Ressources ON Ressources.code = Pret.code 
+JOIN Adhérent ON Adhérent.email = Pret.adhérent
+JOIN Personne ON Personne.email = Adhérent.email 
+WHERE nom = Holland AND prenom = Tom
 
 "Renvoie le nombre de personne ayant emprunté le film top gun"
+SELECT COUNT(*) FROM Adhérent 
+JOIN Pret ON Pret.adhérent = Adhérent.email
+JOIN Ressources ON Ressources.code = Pret.code
+WHERE Ressources.titre = "top gun" 
 
-"Renvoie la liste des personnes ayant eu des sanctions"
 
-"Renvoie la liste des personnes ayant eu des sanctions triés par le nombre de jours de retard le plus élevé"
+"Renvoie la liste des personnes ayant perud l'article empreinté"
+SELECT nom , prenom FROM Personne 
+JOIN Adhérent ON Adhérent.email = Personne.email
+JOIN Deterioration ON deterioration.adhérent = Adhérent.email 
+WHERE Deterioration.nv_etat = perdu
+
+"Renvoie la liste des personnes ayant eu des jours de retards, triés par le nombre de jours de retard le plus élevé au moins élevé"
+SELECT nom , prenom FROM Personne 
+JOIN Adhérent ON Adhérent.email = Personne.email 
+JOIN Retard ON Retard.email = Adhérent.email
+WHERE nb_jours > 0
+ORDER BY nb_jours DESC;
 
 "Renvoie le nombre de jours de retards maximal"
+SELECT max(nb_jours) FROM Retard;
 
-"Renvoie la proportion des personnes ayant deja eu des sanctions"
+"Renvoie la proportion des personnes suspendu"
+SELECT  COUNT(suspendu)/COUNT(*) FROM Adhérent WHERE suspendu = TRUE;
 
-"Revnoie la moyenne des jours de retards quand un adhérent a au moins un jour de retard"
-
+"Revnoie la moyenne des jours de retards"
+SELECT AVG(nb_jours) FROM Retard;
+ 
 " Classement des ressources empruntées de la plus empruntée à la moins empruntée "
 
 SELECT COUNT(*) AS Nombre_d_emprunt,R.titre

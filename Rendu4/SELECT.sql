@@ -17,3 +17,9 @@ INNER JOIN Pret P ON P.code = E.code
 GROUP BY R.code 
 ORDER BY COUNT(*) DESC;
 
+"En combien d'exemplaires disponibles existe une ressource donnée (ici la ressource 1) "
+
+SELECT COUNT(*) AS nb_exemplaires_dispo_ressource1
+FROM Exemplaire
+WHERE Exemplaire.ressource = 1 AND Exemplaire.disponibilite = '1';
+

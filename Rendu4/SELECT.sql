@@ -22,7 +22,7 @@ JOIN Ressources ON Ressources.code = Pret.code
 WHERE Ressources.titre = "top gun" 
 
 
-"Renvoie la liste des personnes ayant perud l'article empreinté"
+"Renvoie la liste des personnes ayant perdu l'article empreinté"
 SELECT nom , prenom FROM Personne 
 JOIN Adhérent ON Adhérent.email = Personne.email
 JOIN Deterioration ON deterioration.adhérent = Adhérent.email 

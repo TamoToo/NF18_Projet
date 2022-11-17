@@ -52,7 +52,7 @@ ORDER BY COUNT(*) DESC;
 
 SELECT COUNT(*) AS nb_exemplaires_dispo_ressource1
 FROM Exemplaire
-WHERE Exemplaire.ressource = 1 AND Exemplaire.disponibilite = '1';
+WHERE Exemplaire.ressource = 1 AND Exemplaire.disponibilite = TRUE;
 
 "Modifier le synopsis d’un film ( = description d’une ressource) "
 UPDATE Film

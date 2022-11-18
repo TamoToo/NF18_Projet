@@ -2,16 +2,6 @@
 
 from datetime import datetime
 
-def afficherMenuPrincipal():
-    print("1. Se connecter\n"
-    "2. Quitter\n"
-    "Choix : ")
-
-def afficherMenuAdherent():
-    print("1. Afficher mes informations\n"
-    "2. Quitter\n"
-    "Choix : ")
-
 
 
 def quote(s):

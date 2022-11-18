@@ -47,7 +47,7 @@ CREATE TABLE Contributeur(
 
 CREATE TABLE Exemplaire(
     code_ressource INTEGER PRIMARY KEY,
-    disponibilité BOOLEAN NOT NULL,
+    disponibilite BOOLEAN NOT NULL,
     etat ETAT,
     FOREIGN KEY (code_ressource) REFERENCES Ressource(code)
 );
@@ -79,25 +79,25 @@ CREATE TABLE Deterioration(
     id INTEGER PRIMARY KEY,
     nv_etat ETAT,
     cout INTEGER,
-    adhérent VARCHAR,
-    FOREIGN KEY (adhérent) REFERENCES Adherent(email)
+    adherent VARCHAR,
+    FOREIGN KEY (adherent) REFERENCES Adherent(email)
 );
 
 CREATE TABLE Retard(
     id INTEGER PRIMARY KEY,
     nb_jours INTEGER,
-    adhérent VARCHAR,
-    FOREIGN KEY (adhérent) REFERENCES Adherent(email)
+    adherent VARCHAR,
+    FOREIGN KEY (adherent) REFERENCES Adherent(email)
 );
 
 CREATE TABLE Pret(
     code INTEGER,
-    adhérent VARCHAR,
+    adherent VARCHAR,
     date_pret DATE NOT NULL,
     nb_jours INTEGER NOT NULL,
     FOREIGN KEY (code) REFERENCES Exemplaire(code_ressource),
-    FOREIGN KEY (adhérent) REFERENCES Adherent(email),
-    PRIMARY KEY(code, adhérent, date_pret)
+    FOREIGN KEY (adherent) REFERENCES Adherent(email),
+    PRIMARY KEY(code, adherent, date_pret)
 );
 
 CREATE TABLE Compte_Utilisateur(

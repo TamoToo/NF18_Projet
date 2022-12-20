@@ -81,21 +81,21 @@ ORDER BY COUNT(*) DESC;
  
 
 --"Le nombre d'exemplaire pour chaque oeuvre"
-SELECT Count(Exemplaire.code), titre
+SELECT Count(Ressource.code), titre
 FROM Exemplaire
 JOIN Livre ON Exemplaire.ressource = Livres.code
 GROUP BY titre
 
 UNION
 
-SELECT Count(Exemplaire.code), titre
+SELECT Count(Ressource.code), titre
 FROM Exemplaire
 JOIN Film ON Exemplaire.ressource = Films.code
 GROUP BY titre
 
 UNION
 
-SELECT Count(Exemplaire.code), titre
+SELECT Count(Ressource.code), titre
 FROM Exemplaire
 JOIN Musique ON Exemplaire.ressource = Musiques.code
 GROUP BY titre;
@@ -103,7 +103,7 @@ GROUP BY titre;
 
 --"Le nombre de livre dans un état perdu"
 SELECT code FROM Exemplaire 
-JOIN Deterioration ON Deterioration.id = Exemplaire.code
+JOIN Deterioration ON Deterioration.id = Ressource.code
 WHERE Deterioration.nv_etat = 'perdu'
 GROUP BY Exemplaire.titre 
 

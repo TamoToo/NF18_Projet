@@ -81,13 +81,13 @@ ORDER BY COUNT(*) DESC;
 
 --" Afficher nom et prenom pour les membres qui ont plus que une Deterioration"
 SELECT nom , prenom
-from Personne
-inner join Prêt
-on Pret.adherent = Membres.id
-inner join Deterioration 
-on Deterioration.id_pret = Pret.id_pret
-group by adherent
-having count(adherent) > 1; 
+FROM Personne
+INNER JOIN Prêt
+ON Pret.adherent = Membres.code
+INNER JOIN Deterioration 
+ON Deterioration.code = Pret.code
+GROUP BY adherent
+HAVING COUNT(adherent) > 1; 
 
 --"Le nombre d'exemplaire pour chaque oeuvre"
 

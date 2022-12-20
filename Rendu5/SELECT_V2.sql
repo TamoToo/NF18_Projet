@@ -78,37 +78,30 @@ INNER JOIN Pret P ON P.code = E.code
 WHERE P.date BETWEEN TO_DATE('20210501','YYYYMMDD') AND TO_DATE('20210601','YYYYMMDD')
 GROUP BY R.code 
 ORDER BY COUNT(*) DESC;
-
---" Afficher nom et prenom pour les membres qui ont plus que une Deterioration"
-SELECT nom , prenom
-FROM Personne
-INNER JOIN Prêt
-ON Pret.adherent = Membres.code
-INNER JOIN Deterioration 
-ON Deterioration.code = Pret.code
-GROUP BY adherent
-HAVING COUNT(adherent) > 1; 
+ 
 
 --"Le nombre d'exemplaire pour chaque oeuvre"
 
-SELECT Count(Exemplaire.id), titre
+SELECT Count(Exemplaire.code), titre
 FROM Exemplaire
-JOIN Livres ON Exemplaire.ressource = Livres.code_ressource
-GROUP BY (titre)
+JOIN Livre ON Exemplaire.ressource = Livres.code
+GROUP BY titre
 
 UNION
 
-SELECT Count(Exemplaire.id), titre
+SELECT Count(Exemplaire.code), titre
 FROM Exemplaire
-JOIN Films ON Exemplaire.ressource = Films.code_ressource
-GROUP BY (titre)
+JOIN Film ON Exemplaire.ressource = Films.code
+GROUP BY titre
 
 UNION
 
-SELECT Count(Exemplaire.id), titre
+SELECT Count(Exemplaire.code), titre
 FROM Exemplaire
-JOIN Musiques ON Exemplaire.ressource = Musiques.code_ressource
-GROUP BY (titre);
+JOIN Musique ON Exemplaire.ressource = Musiques.code
+GROUP BY titre;
+
+
 
 
 

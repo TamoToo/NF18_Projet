@@ -35,6 +35,7 @@ def printRessources(conn, email):
         print(f"Code de classification : {row[5]}")
         print()
 
+##### DATEDIF NE FONCTIONNE PAS #####
 def printRessourcesDisponible(conn):
     # Connect and retrieve data
     cur = conn.cursor()

@@ -57,27 +57,38 @@ def addAdherent(conn):
     blacklist = quote(input("Blacklisté : "))
     # Connect, execute SQL and commit
     cur = conn.cursor()
-    sql = f"INSERT INTO Personne VALUES ('{email}', {nom}, {prenom}, {adresse})"
+    sql = f"INSERT INTO Personne VALUES ({email}, {nom}, {prenom}, {adresse})"
     cur.execute(sql)
-    sql = f"INSERT INTO Adherent VALUES ('{email}', {date_naissance}, {telephone}, {carte}, {suspension}, {blacklist})"
+    sql = f"INSERT INTO Adherent VALUES ({email}, {date_naissance}, {telephone}, {carte}, {suspension}, {blacklist})"
     cur.execute(sql)
     conn.commit()
 
 def blacklistAdherent(conn):
     email = quote(input("Email : "))
+    val = input("Blacklisté (o/n) : ")
     # Connect, execute SQL and commit
     cur = conn.cursor()
-    sql = f"UPDATE Adherent SET blacklist = TRUE WHERE email = '{email}'"
+    if val == 'o':
+        sql = f"UPDATE Adherent SET blacklist = TRUE WHERE email = {email}"
+    else:
+        sql = f"UPDATE Adherent SET blacklist = FALSE WHERE email = {email}"
     cur.execute(sql)
     conn.commit()
 
 def emprunterRessource(conn, email):
-    reports.printRessourcesDisponible(conn)
+    cur = conn.cursor()
+    sql = f"SELECT blacklist FROM Adherent WHERE email = '{email}'"
+    cur.execute(sql)
+    conn.commit()
+    res = cur.fetchone()
+    if res[0] == "True":
+        print("Vous êtes blacklisté")
+        return
+    #reports.printRessourcesDisponible(conn)
     print("Ressource à emprunter :")
     id = int(input("id: "))
     nb_jours = int(input("Nombre de jours : "))
     # Connect, execute SQL and commit
-    cur = conn.cursor()
     sql = f"INSERT INTO Pret VALUES ({id}, '{email}', CURRENT_DATE, {nb_jours})"
     try:
         cur.execute(sql)

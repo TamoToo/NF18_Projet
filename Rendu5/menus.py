@@ -37,10 +37,7 @@ def afficherMenuAdherent(conn, user_info):
         elif choice == 2:
             reports.printRessources(conn, user_info['email'])
         elif choice == 3:
-            if user_info['blacklist']:
-                print("Vous êtes blacklisté")
-            else:
-                forms.emprunterRessource(conn, user_info['email'])
+            forms.emprunterRessource(conn, user_info['email'])
         elif choice == 4:
             print("Au revoir")
             return None
@@ -54,7 +51,7 @@ def afficherMenuDirecteur(conn, user_info):
         print("1. Ajouter une ressource\n"
         "2. Afficher tous les adhérents\n"
         "3. Ajouter un adhérent\n"
-        "4. Blacklister un adhérent\n"
+        "4. Blacklister / Déblacklister un adhérent\n"
         "5. Quitter\n"
         "Choix : ")
         choice = int(input())

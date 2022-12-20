@@ -74,15 +74,10 @@ WHERE Film.code = '3';
 SELECT COUNT(*) AS Nombre_d_emprunt_mois_de_mai,R.titre
 FROM Ressource R
 INNER JOIN Exemplaire E ON E.ressource = R.code
-INNER JOIN Pret P ON P.id = E.id
-WHERE P.date_pret BETWEEN TO_DATE('20210501','YYYYMMDD') AND TO_DATE('20210601','YYYYMMDD')
+INNER JOIN Pret P ON P.code = E.code
+WHERE P.date BETWEEN TO_DATE('20210501','YYYYMMDD') AND TO_DATE('20210601','YYYYMMDD')
 GROUP BY R.code 
 ORDER BY COUNT(*) DESC;
 
-/* Regarder les adhérents avec une ou plusieurs sanctions */
-SELECT Adherent.nom AS nom_du_sanctionné, Adherent.prenom AS prenom_du_sanctionné, Adherent.mail AS mail, COUNT(Pret.t_sanction) AS nombre_de_sanction
-FROM Adherent 
-INNER JOIN Pret ON Adherent.nom = Pret.nom AND Adherent.prenom = Pret.prenom AND Adherent.mail = Pret.mail
-WHERE t_sanction IS NOT NULL
-GROUP BY Adherent.nom, Adherent.prenom, Adherent.mail;
+
 

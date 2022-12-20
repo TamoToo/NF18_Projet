@@ -80,16 +80,16 @@ GROUP BY R.code
 ORDER BY COUNT(*) DESC;
 
 --" Afficher nom et prenom pour les membres qui ont plus que une Deterioration"
-select nom , prenom
-from Membres
-inner join Pret
+SELECT nom , prenom
+from Personne
+inner join Prêt
 on Pret.adherent = Membres.id
 inner join Deterioration 
 on Deterioration.id_pret = Pret.id_pret
 group by adherent
 having count(adherent) > 1; 
 
----Le nombre d'exemplaire pour chaque oeuvre
+--"Le nombre d'exemplaire pour chaque oeuvre"
 
 SELECT Count(Exemplaire.id), titre
 FROM Exemplaire

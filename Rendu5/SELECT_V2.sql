@@ -69,7 +69,7 @@ SELECT synopsis
 FROM Film 
 WHERE Film.code = '3';
 
-/* Classement des ressources empruntées de la plus empruntée à la moins empruntée pour un mois donné */
+--"Classement des ressources empruntées de la plus empruntée à la moins empruntée pour un mois donné"
 
 SELECT COUNT(*) AS Nombre_d_emprunt_mois_de_mai,R.titre
 FROM Ressource R
@@ -78,6 +78,37 @@ INNER JOIN Pret P ON P.code = E.code
 WHERE P.date BETWEEN TO_DATE('20210501','YYYYMMDD') AND TO_DATE('20210601','YYYYMMDD')
 GROUP BY R.code 
 ORDER BY COUNT(*) DESC;
+
+--" Afficher nom et prenom pour les membres qui ont plus que une Deterioration"
+select nom , prenom
+from Membres
+inner join Pret
+on Pret.adherent = Membres.id
+inner join Deterioration 
+on Deterioration.id_pret = Pret.id_pret
+group by adherent
+having count(adherent) > 1; 
+
+---Le nombre d'exemplaire pour chaque oeuvre
+
+SELECT Count(Exemplaire.id), titre
+FROM Exemplaire
+JOIN Livres ON Exemplaire.ressource = Livres.code_ressource
+GROUP BY (titre)
+
+UNION
+
+SELECT Count(Exemplaire.id), titre
+FROM Exemplaire
+JOIN Films ON Exemplaire.ressource = Films.code_ressource
+GROUP BY (titre)
+
+UNION
+
+SELECT Count(Exemplaire.id), titre
+FROM Exemplaire
+JOIN Musiques ON Exemplaire.ressource = Musiques.code_ressource
+GROUP BY (titre);
 
 
 

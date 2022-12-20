@@ -32,6 +32,5 @@ while not end:
       end = True
       continue
 
-
 # Close connection
 conn.close()

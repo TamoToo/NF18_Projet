@@ -35,6 +35,23 @@ def printRessources(conn, email):
         print(f"Code de classification : {row[5]}")
         print()
 
+def printRessourcesDisponible(conn):
+    # Connect and retrieve data
+    cur = conn.cursor()
+    sql = "SELECT * FROM ressource r WHERE r.code NOT IN (SELECT p.code FROM pret p WHERE DATEDIFF('day', CURRENT_DATE, p.date_pret) > p.nb_jours)"
+    cur.execute(sql)
+    # Fetch data line by line
+    raw = cur.fetchall()
+    # Print data
+    for row in raw:
+        print(f"ID : {row[0]}")
+        print(f"Titre : {row[1]}")
+        print(f"Date de parution : {row[2]}")
+        print(f"Editeur : {row[3]}")
+        print(f"Genre : {row[4]}")
+        print(f"Code de classification : {row[5]}")
+        print()
+
 def printAdherent(conn, email):
     # Connect and retrieve data
     cur = conn.cursor()

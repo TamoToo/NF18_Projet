@@ -19,14 +19,14 @@ INSERT INTO Exemplaire VALUES (4, TRUE, 'perdu');
 -- INSERT INTO Contributeur VALUES (2, ' Rowling', 'J.K.', TO_DATE('1965-07-31', 'YYYY-MM-DD'), 'britannique');
 
 
-INSERT INTO Interprete VALUES (4,4);
-INSERT INTO Compositeur VALUES (4,4);
+INSERT INTO Interprete VALUES (4);
+INSERT INTO Compositeur VALUES (4);
 
-INSERT INTO Auteur VALUES (2, 2);
+INSERT INTO Auteur VALUES (2);
 
-INSERT INTO Acteur VALUES (1,1);
+INSERT INTO Acteur VALUES (1);
 
-INSERT INTO Realisateur VALUES (1,1);
+INSERT INTO Realisateur VALUES (1);
 
 
 

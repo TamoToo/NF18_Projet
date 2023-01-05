@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS Ressource, Film, Livre, Musique, Contributeur, Exemplaire, Personne, Adherent, Personnel, Deterioration, Retard, Pret, Compte_Utilisateur, Interprete, Compositeur, Auteur, Realisateur, Acteur;
+DROP TABLE IF EXISTS Ressource, Film, Livre, Musique, Exemplaire, Personne, Adherent, Personnel, Deterioration, Retard, Pret, Interprete, Compositeur, Auteur, Realisateur, Acteur;
 DROP TYPE IF EXISTS ETAT;
 
 
@@ -112,41 +112,36 @@ CREATE TABLE Pret(
 -- );
 
 CREATE TABLE Interprete(
-    code INTEGER,
-    id INTEGER,
-    FOREIGN KEY (code) REFERENCES Musique(code),
-    FOREIGN KEY (id) REFERENCES Contributeur(id),
-    PRIMARY KEY(code, id)
+    code INTEGER PRIMARY KEY,
+    -- id INTEGER,
+    FOREIGN KEY (code) REFERENCES Musique(code)
+    -- FOREIGN KEY (id) REFERENCES Contributeur(id),
 );
 
 CREATE TABLE Compositeur(
-    code INTEGER,
-    id INTEGER,
-    FOREIGN KEY (code) REFERENCES Musique(code),
-    FOREIGN KEY (id) REFERENCES Contributeur(id),
-    PRIMARY KEY(code, id)
+    code INTEGER PRIMARY KEY,
+    -- id INTEGER,
+    FOREIGN KEY (code) REFERENCES Musique(code)
+    -- FOREIGN KEY (id) REFERENCES Contributeur(id),
 );
 
 CREATE TABLE Auteur(
-    code INTEGER,
-    id INTEGER,
-    FOREIGN KEY (code) REFERENCES Livre(code),
-    FOREIGN KEY (id) REFERENCES Contributeur(id),
-    PRIMARY KEY(code, id)
+    code INTEGER PRIMARY KEY,
+    -- id INTEGER,
+    FOREIGN KEY (code) REFERENCES Livre(code)
+    -- FOREIGN KEY (id) REFERENCES Contributeur(id),
 );
 
 CREATE TABLE Realisateur(
-    code INTEGER,
-    id INTEGER,
-    FOREIGN KEY (code) REFERENCES Film(code),
-    FOREIGN KEY (id) REFERENCES Contributeur(id),
-    PRIMARY KEY(code, id)
+    code INTEGER PRIMARY KEY,
+    -- id INTEGER,
+    FOREIGN KEY (code) REFERENCES Film(code)
+    -- FOREIGN KEY (id) REFERENCES Contributeur(id),
 );
 
 CREATE TABLE Acteur(
-    code INTEGER,
-    id INTEGER,
-    FOREIGN KEY (code) REFERENCES Film(code),
-    FOREIGN KEY (id) REFERENCES Contributeur(id),
-    PRIMARY KEY(code, id)
+    code INTEGER PRIMARY KEY,
+    -- id INTEGER,
+    FOREIGN KEY (code) REFERENCES Film(code)
+    -- FOREIGN KEY (id) REFERENCES Contributeur(id),
 );

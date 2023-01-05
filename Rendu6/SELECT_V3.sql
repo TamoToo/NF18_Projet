@@ -106,3 +106,23 @@ SELECT code FROM Exemplaire
 JOIN Deterioration ON Deterioration.id = Ressource.code
 WHERE Deterioration.nv_etat = 'perdu'
 GROUP BY Exemplaire.titre 
+
+
+
+--"Renvoie tous les logins disponibles"
+SELECT compte_utilisateur->>'user_login' AS login 
+FROM Personne
+
+
+--"Renvoie les information du contributeur du livre Harry Potter"
+SELECT contributeur->>'nom' AS nom, contributeur->>'prenom' AS prenom, contributeur->>'nationalité'
+FROM Ressource
+
+
+
+
+
+
+
+
+

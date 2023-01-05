@@ -105,7 +105,7 @@ GROUP BY titre;
 SELECT code FROM Exemplaire 
 JOIN Deterioration ON Deterioration.id = Ressource.code
 WHERE Deterioration.nv_etat = 'perdu'
-GROUP BY Exemplaire.titre 
+GROUP BY Exemplaire.titre;
 
 
 
@@ -126,7 +126,11 @@ FROM Personne
 WHERE adresse->>'ville' = "compiègne";
 
 
---"Renvoie "
+--"Renvoie le nom des personnes ayant un mdp égale à 'tomi60200'"
+SELECT nom, compte_utilisateur->>'mdp' AS mdp
+FROM Personne
+WHERE mdp = "tomi60200";
+
 
 
 

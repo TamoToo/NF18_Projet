@@ -111,12 +111,28 @@ GROUP BY Exemplaire.titre
 
 --"Renvoie tous les logins disponibles"
 SELECT compte_utilisateur->>'user_login' AS login 
-FROM Personne
+FROM Personne;
 
 
 --"Renvoie les information du contributeur du livre Harry Potter"
-SELECT contributeur->>'nom' AS nom, contributeur->>'prenom' AS prenom, contributeur->>'nationalité'
+SELECT titre, contributeur->>'nom' AS nom, contributeur->>'prenom' AS prenom, contributeur->>'nationalité'
 FROM Ressource
+WHERE titre = "harry potter";
+
+
+--"Renvoie tous les utilisateurs qui habitent à Compiegne"
+SELECT nom, prenom
+FROM Personne
+WHERE adresse->>'ville' = "compiègne";
+
+
+--"Renvoie "
+
+
+
+
+
+
 
 
 

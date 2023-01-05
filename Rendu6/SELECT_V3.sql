@@ -127,22 +127,6 @@ WHERE adresse->>'ville' = "compiègne";
 
 
 --"Renvoie le nom des personnes ayant un mdp égale à 'tomi60200'"
-SELECT nom, compte_utilisateur->>'mdp' AS mdp
+SELECT nom, compte_utilisateur->>'user_password' AS mdp
 FROM Personne
 WHERE mdp = "tomi60200";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

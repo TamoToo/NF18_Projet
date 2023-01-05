@@ -106,5 +106,3 @@ SELECT code FROM Exemplaire
 JOIN Deterioration ON Deterioration.id = Ressource.code
 WHERE Deterioration.nv_etat = 'perdu'
 GROUP BY Exemplaire.titre 
-
-

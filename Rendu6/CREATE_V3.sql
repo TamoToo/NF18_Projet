@@ -11,6 +11,7 @@ CREATE TABLE Ressource (
 	editeur VARCHAR,
 	genre VARCHAR,
 	code_classification INTEGER UNIQUE NOT NULL,
+    contributeur JSON NOT NULL,
     CHECK (code_classification>0 and code_classification<1000)
 );
 
@@ -36,14 +37,14 @@ CREATE TABLE Musique (
     FOREIGN KEY (code) REFERENCES Ressource(code)
 );
 
-CREATE TABLE Contributeur(
-    id INTEGER PRIMARY KEY,
-    nom VARCHAR NOT NULL,
-    prenom VARCHAR NOT NULL,
-    date_naissance DATE NOT NULL,
-    nationalite VARCHAR,
-    FOREIGN KEY (id) REFERENCES Ressource(code)
-);
+-- CREATE TABLE Contributeur(
+--     id INTEGER PRIMARY KEY,
+--     nom VARCHAR NOT NULL,
+--     prenom VARCHAR NOT NULL,
+--     date_naissance DATE NOT NULL,
+--     nationalite VARCHAR,
+--     FOREIGN KEY (id) REFERENCES Ressource(code)
+-- );
 
 CREATE TABLE Exemplaire(
     code_ressource INTEGER PRIMARY KEY,
@@ -56,7 +57,9 @@ CREATE TABLE Personne(
     email VARCHAR PRIMARY KEY,
     nom VARCHAR NOT NULL,
     prenom VARCHAR NOT NULL,
-    adresse VARCHAR
+    -- adresse VARCHAR,
+    adresse JSON,
+    compte_utilisateur JSON
 );
 
 CREATE TABLE Adherent(
@@ -100,13 +103,13 @@ CREATE TABLE Pret(
     PRIMARY KEY(code, adherent, date_pret)
 );
 
-CREATE TABLE Compte_Utilisateur(
-    user_login VARCHAR NOT NULL,
-    email VARCHAR NOT NULL,
-    pass VARCHAR(32) NOT NULL,
-    FOREIGN KEY (email) REFERENCES Personne(email),
-    PRIMARY KEY(user_login, email)
-);
+-- CREATE TABLE Compte_Utilisateur(
+--     user_login VARCHAR NOT NULL,
+--     email VARCHAR NOT NULL,
+--     pass VARCHAR(32) NOT NULL,
+--     FOREIGN KEY (email) REFERENCES Personne(email),
+--     PRIMARY KEY(user_login, email)
+-- );
 
 CREATE TABLE Interprete(
     code INTEGER,

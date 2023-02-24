@@ -1,5 +1,7 @@
 # NF18_Biblio_A22 (TD3_G4)
 
+Projet réalisé lors de l'UV NF18 (_Conception de bases de données relationnelles et non relationnelles_) à l'UTC
+
 >## Membres
 - Cyril Normand
 - Mathis Khaznadji

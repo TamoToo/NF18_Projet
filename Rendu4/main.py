@@ -5,10 +5,10 @@
 import psycopg2
 import menus
 
-HOST = "tuxa.sme.utc"
-USER = "nf18a056"
-PASSWORD = "HvMhY30c"
-DATABASE = "dbnf18a056"
+HOST = ""
+USER = ""
+PASSWORD = ""
+DATABASE = ""
 
 # Open connection
 conn = psycopg2.connect("host=%s dbname=%s user=%s password=%s" % (HOST, DATABASE, USER, PASSWORD))
